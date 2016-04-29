@@ -10,11 +10,7 @@ html, body, div, ul, p, input{
 #padding0{
 	padding: 0 !important;
 }
-<<<<<<< HEAD
 .detail_page, .add_page{
-=======
-.add_page, .detail_page{
->>>>>>> 1a25b8ac93f48316acacf39a586431b7dbfa4dd7
 	display: none;
 }
 .bold{

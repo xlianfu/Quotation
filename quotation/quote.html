@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>quote</title>
+    <link href="css/quote.css" rel="stylesheet">
+  	<script src="js/react.min.js"></script>
+  	<script src="js/react-dom.min.js"></script>
+  	<script src="js/browser.min.js"></script>
+  </head>
+  <body>
+  	<div class="container">
+  		<p class="title">报价单</p>
+  		<!-- 顶部左边div -->
+  		<div class="top_left">
+  			<div class="client">
+	  			<ul class="sub_bold">
+	  				<li class="indent0">甲方客户名称(客户)：</li>
+	  				<li>品牌名称：</li>
+	  				<li>客户方负责人：</li>
+	  				<li>项目编号：</li>
+	  				<li>项目名称：</li>
+	  			</ul>
+	  			<!-- 甲方数据 动态数据 -->
+	  			<div class="top_valueA"></div>
+	  		</div>
+	  		<!-- 顶部右边数据 动态数据 -->
+	  		<div class="right"></div>
+
+	  		<div class="clear"></div>
+	  		<div class="company" style="margin-top: 30px;">
+	  			<ul class="sub_bold">
+	  				<li class="indent0">乙方公司名称(服务公司)：</li>
+	  				<li>乙方项目负责人：</li>
+	  				<li>项目编号：</li>
+	  				<li>项目名称：</li>
+	  				<li>日期：</li>
+	  			</ul>
+	  			<!-- 乙方数据 动态数据 -->
+	  			<div class="top_valueB"></div>
+	  		</div>
+  		</div>
+  		<div class="clear"></div>
+  		<!-- content -->
+  		<div class="content">
+			<ol class="title_ol clear">
+				<li class="version">0</li>
+				<li class="item_name">0</li>
+				<li class="item">项目 Item</li>
+				<li class="desc" style="line-height: 46px;">描述 Description</li>
+				<li class="quantity line_h23">数量 <br>Quantity</li>
+				<li class="unit line_h23">单位 <br>RMB/Unit</li>
+				<li class="price line_h23">单价 <br>Unit Price</li>
+				<li class="total line_h23">合计 <br>Sub-total</li>
+			</ol>
+
+
+			<!-- 添加一个项目 -->
+			<!-- 动态数据 -->
+  			<div class="add_product"></div>
+  			<!-- 动态数据 -->
+  			<div class="list_data"></div>
+  			<p class="bottp"></p>
+  			<!-- 动态数据 -->
+  			<div class="list_data2"></div>
+  			<p class="bottp"></p>
+  			<!-- 动态数据 -->
+  			<div class="list_data3"></div>
+  			<!-- 添加项目 结束 -->
+  			<p class="bottp"></p>
+  			<!-- 一个项目结束 -->
+
+
+  			<!-- 添加一个项目 -->
+			<!-- 动态数据 -->
+  			<div class="add2_product"></div>
+  			<!-- 动态数据 -->
+  			<div class="list2_data"></div>
+  			<p class="bottp"></p>
+  			<div class="list2_data2"></div>
+  			<p class="bottp"></p>
+  			<div class="list2_data3"></div>
+  			<p class="bottp"></p>
+  			<!-- 添加项目 结束 -->
+
+  			<!-- 添加一个项目 -->
+			<!-- 动态数据 -->
+  			<div class="add3_product"></div>
+  			<!-- 动态数据 -->
+  			<div class="list3_data"></div>
+  			<p class="bottp"></p>
+  			<!-- 底部子标题列 -->
+  			<div class="last_data"></div>
+  			<!-- 添加项目 结束 -->
+
+  		</div>
+
+  		<!-- bottom -->
+		<p class="bot_p">备注：如果项目和服务在实际实施中出现意外支出或由甲方要求产生额外增加的服务内容，乙方将修改或另行追加报价。</p>
+
+		<div class="bottom">
+			<div class="bottom_left">
+				<p style="opacity:0;">.</p>
+				<p style="margin-top:8px;">客户方项目负责人批准签字盖章</p>
+				<p class="top15 bold bottom2">上海决胜整合品牌推广有限公司</p>
+				<p class="bold" style="margin-top:5px;">日期：</p>
+				<p class="bottom2" style="height: 30px;"></p>
+			</div>
+			<div class="bottom_right">
+				<p style="text-indent:20px;">乙方确认：</p>
+				<p style="margin-top:8px;text-indent:-45px;">授权负责人签字盖章</p>
+				<p class="top15 bold bottom2" style="text-indent:-88px;">上海赢赞数字科技有限公司</p>
+				<p class="bold" style="text-indent:52px;margin-top:5px;">日期：</p>
+				<p class="bottom2" style="height: 30px;"></p>
+			</div>
+		</div>
+  	</div>
+
+  	<script type="text/babel">
+
+  		// addTopValue: 顶部数据的函数
+  		var addTopValue = function(value, name){
+	  		var top_value = [];
+	  		top_value.push(
+	  			<ul className="sub_ul">
+	  				<li><input type="text" value={value[0]} /></li>
+	  				<li><input type="text" value={value[1]} /></li>
+	  				<li><input type="text" value={value[2]} /></li>
+	  				<li><input type="text" value={value[3]} /></li>
+	  				<li><input type="text" value={value[4]} /></li>
+	  			</ul>
+	  		);
+
+	  		var TopValue = React.createClass({
+	  			render: function(){
+	  				return (
+	  					<div>{top_value}</div>
+	  				);
+	  			}
+	  		});
+
+	  		ReactDOM.render(
+	  			<TopValue />,
+	  			document.querySelector(name)
+	  		);
+  		};
+
+  		// 甲方数据
+  		var valueA = [];
+  		valueA = ['上海决胜整合品牌推广有限公司', 'Adidas Boost', 'Tony', '0', 'Adidas Boost'];
+  		addTopValue(valueA, '.top_valueA');
+
+  		// 乙方数据
+  		var valueB = [];
+  		valueB = ['上海赢赞数字科技有限公司', 'Kavin', 'YZ-160402-1', 'Adidas Boost', '0'];
+  		addTopValue(valueB, '.top_valueB');
+
+  		// 顶部右边数据
+  		var right_data = ['12F, LiYeah, 699Wuzhong Road, Shanghai, 201103', '上海市闵行区吴中路699号励业社区F12 201103', 'TEL 8621 60488865'];
+
+  		var TopRight = React.createClass({
+  			render: function(){
+				return (
+					<div className="top_right">
+			  			<p><input type="text" value={right_data[0]} /></p>
+			  			<p><input type="text" value={right_data[1]} /></p>
+			  			<p><input type="text" value={right_data[2]} /></p>
+			  		</div>
+  				);
+  			}
+  		});
+
+  		ReactDOM.render(
+  			<TopRight />,
+  			document.querySelector(".right")
+  		);
+
+  		// 将 标题数据 添加到数组中
+  		var addTitleFunction = function(arr, classname){
+  			var data = [];
+	  		data.push(
+	  			<ol className="version1_ol clear">
+					<li className="version"><input type="text" value={arr[0]} /></li>
+					<li className="item_name"><input type="text" value={arr[1]} /></li>
+					<li className="item"><input type="text" value={arr[2]} /></li>
+					<li className="desc"><textarea className="area_title" type="text">{arr[3]}</textarea></li>
+					<li className="quantity"><input className="tcenter" type="text" value={arr[4]} /></li>
+					<li className="unit"><input className="tcenter" type="text" value={arr[5]} /></li>
+					<li className="price"><input className="tcenter" type="text" value={arr[6]} /></li>
+					<li className="total"><input className="tright" type="text" value={arr[7]} /></li>
+				</ol>
+	  		);
+
+	  		// 添加标题
+	  		var OneProduct = React.createClass({
+	  			render: function(){
+	  				return (
+	  					<div>{data}</div>
+	  				);
+	  			}
+	  		});
+
+	  		ReactDOM.render(
+	  			<OneProduct />,
+	  			document.querySelector(classname)
+	  		);
+  		};
+
+  		// 将 子标题数据 添加到数组中
+		var addListFunction = function(list_title, value, classname, x){
+			var list_datas = [];
+	  		list_datas.push(
+	  			<div className="one_version"></div>
+	  		);
+
+	  		list_datas.push(
+  				<ol className="version1_ol1 clear">
+					<li className="version"><input type="text" value={list_title[0]} /></li>
+					<li className="item_name"><input type="text" value={list_title[1]}/></li>
+					<li className="item"><input type="text" value={list_title[2]} /></li>
+					<li className="desc"><textarea className="area_subtitle" type="text">{list_title[3]}</textarea></li>
+					<li className="quantity"><input className="tcenter"  type="text" value={list_title[4]} /></li>
+					<li className="unit"><input className="tcenter"  type="text" value={list_title[5]} /></li>
+					<li className="price"><input className="tcenter"  type="text" value={list_title[6]} /></li>
+					<li className="total"><input className="tright"  type="text" value={list_title[7]} /></li>
+				</ol>
+	  		);
+
+	  		if(!list_title){
+	  			list_datas = [];
+	  		}
+	  		
+	  		// 将 列表项数据 添加到数组中
+	  		if(x == 1){
+	  			x = value.length - 1;
+	  		}
+	  		for(var i = 0; i < value.length; i++){
+	  			if(i == x){
+	  				list_datas.push(
+			  			<ol className="version1_ol2 clear">
+							<li className="version"><input className="bold" type="text" value={value[i][0]} /></li>
+							<li className="item_name"><input className="bold" type="text" value={value[i][1]} /></li>
+							<li className="item"><input className="bold" type="text" value={value[i][2]} /></li>
+							<li className="desc desc2"><textarea className="bold" type="text">{value[i][3]}</textarea></li>
+							<li className="quantity"><input className="tcenter bold" type="text" value={value[i][4]} /></li>
+							<li className="unit"><input className="tcenter bold" type="text" value={value[i][5]} /></li>
+							<li className="price"><input className="tcenter bold" type="text" value={value[i][6]} /></li>
+							<li className="total"><input className="tright bold" type="text" value={value[i][7]} /></li>
+						</ol>
+			  		);
+	  			}else{
+			  		list_datas.push(
+			  			<ol className="version1_ol2 clear">
+							<li className="version"><input type="text" value={value[i][0]} /></li>
+							<li className="item_name"><input type="text" value={value[i][1]} /></li>
+							<li className="item"><input type="text" value={value[i][2]} /></li>
+							<li className="desc desc2"><textarea type="text">{value[i][3]}</textarea></li>
+							<li className="quantity"><input className="tcenter" type="text" value={value[i][4]} /></li>
+							<li className="unit"><input className="tcenter" type="text" value={value[i][5]} /></li>
+							<li className="price"><input className="tcenter" type="text" value={value[i][6]} /></li>
+							<li className="total"><input className="tright" type="text" value={value[i][7]} /></li>
+						</ol>
+			  		);
+		  		}
+	  		}
+
+	  		// 添加子标题
+	  		var ListData = React.createClass({
+	  			render: function(){
+	  				return  (
+	  					<div>{list_datas}</div>
+	  				);
+	  			}
+	  		});
+
+	  		ReactDOM.render(
+	  			<ListData />,
+	  			document.querySelector(classname)
+	  		);
+		};
+		
+
+		// 标题数组 
+  		var subtitle = [];
+  		subtitle = ['1', 'H5 Interactive', '0', '0', '0', '0', '0', '16,000'];
+
+  		// 子标题数组
+  		var list_title = [];
+  		list_title = ['1.1', '前端开发', '0', '0', '0', '0', '0', '3,000'];
+
+  		// 列表项数组
+  		var list_value = [];
+  		list_value = [
+  			['1.1.1', '0', '页面逻辑开发', '所有页面的逻辑结构；与后台系统连接借口开发；', '1', '套', '1000.00', '1,000'],
+  			['1.1.2', '0', '页面UI开发', 'Boost Passport页面；Boost介绍页面；Energy小游戏页面；', '1', '套', '1000.00', '1,000'],
+  			['0', '0', '动画特效与小游戏', 'Boost介绍页面动画特效开发；Energy小游戏开发；', '1', '套', '1000.00', '1,000']
+  		];
+
+  		var classname = "";
+
+  		classname = ".add_product";
+  		addTitleFunction(subtitle, classname);
+
+  		classname = ".list_data";
+		addListFunction(list_title, list_value, classname);
+
+		// 子标题数组
+		var list_title2 = [];
+		list_title2 = ['1.2', '后台开发', '0', '0', '0', '0', '0', '3,000'];
+
+		// 列表项数组
+		var list_value2 = [];
+		list_value2 = [
+			['1.2.1', '0', '数据库开发', '联系方式数据库', '1', '套', '1000.00', '1,000'],
+			['1.2.2', '0', '数据导出系统', '将所有数据导出成Excel文件', '1', '套', '1000.00', '1,000'],
+			['1.2.3', '0', '数据保存接口开发', '开发接口提供给前端保存联系方式', '1', '套', '1000.00', '1,000'],
+		];
+
+		classname = ".list_data2";
+		addListFunction(list_title2, list_value2, classname);
+
+		// 子标题数组
+		var list_title3 = [];
+		list_title3 = ['1.3', '交互内容设计', '0', '0', '0', '0', '0', '10,000'];
+
+		// 列表项数组
+		var list_value3 = [];
+		list_value3 = [
+			['1.3.1', '0', '交互内容设计', '页面设计；动画设计；', '1', '套', '10000.00', '10,000'],
+			['0', '0', '动画制作', '跑动动画', '1', '套', '10000.00', '10,000']
+		];
+
+		classname = ".list_data3";
+		addListFunction(list_title3, list_value3, classname);
+
+
+
+		// 标题数组
+		var subtitle2 = [];
+		subtitle2 = ['2', 'Window Display', '0', '0', '0', '0', '0', '12,000'];
+
+		// 子标题数组
+		var list2_title = [];
+		list2_title = ['2.1', '硬件', '0', '0', '0', '0', '0', '8,000'];
+
+		// 列表数组
+		var list2_value = [];
+		list2_value = [
+			['2.1.1', '0', '传动装置', '小球外观定制；定制开发版；传感器连接；', '1', '套', '1000.00', '1,000'],
+			['2.1.2', '0', '室内全彩屏幕', '尺寸：宽3.5m；高2m；p4室内全彩；', '7', '平方', '1000.00', '7,000']
+		];
+
+		classname = ".add2_product";
+  		addTitleFunction(subtitle2, classname);
+
+  		classname = ".list2_data";
+		addListFunction(list2_title, list2_value, classname);
+
+		// 子标题数组
+		var list2_title2 = [];
+		list2_title2 = ['2.2', '程序开发', '0', '0', '0', '0', '0', '1,000'];
+
+		// 列表数组
+		var list2_value2 = [];
+		list2_value2 = [
+			['2.2.1', '0', '嵌入式程序开发', '硬件开发；逻辑开发；硬件连接；', '1', '套', '1000.00', '1,000']
+		];
+
+		classname = ".list2_data2";
+		addListFunction(list2_title2, list2_value2, classname);
+
+		// 子标题数组
+		var list2_title3 = [];
+		list2_title3 = ['2.3', '辅料', '0', '0', '0', '0', '0', '3,000'];
+
+		// 列表数组
+		var list2_value3 = [];
+		list2_value3 = [
+			['2.3.1', '0', '辅料', '物流；线缆；', '1', '批', '1000.00', '1,000'],
+			['2.3.2', '0', '安装', '安装调试；', '2', '批', '1000.00', '2,000']
+		];
+
+		classname = ".list2_data3";
+		addListFunction(list2_title3, list2_value3, classname);
+
+
+		// 标题数组
+		var subtitle3 = [];
+		subtitle3 = ['3', '云服务器', '0', '0', '0', '0', '0', '5,500'];
+
+		// 子标题数组
+		var list3_value = [];
+		list3_value = [
+			['3.1', '0', '服务器租赁', 'Intel Xeon E5-2680 v3双核处理器，2.5GHZ的主频；4GBDDR4内存；100GB固态硬盘；10MB宽带；', '1', '月', '1500.00', '1,500'],
+			['3.2', '0', '服务器维护', '环境搭建；性能优化；日常维护；', '1', '月', '4000.00', '4,000']
+		];
+
+		classname = ".add3_product";
+		addTitleFunction(subtitle3, classname);
+		classname = ".list3_data";
+		addListFunction("", list3_value, classname);
+
+		// 最底部子标题数组
+		var last_value = [];
+		last_value = [
+			['0', '未税小计', '0', '0', '0', '0', '0', '3,200'],
+			['0', 'Tax 3%', '0', '0', '0', '0', '0', '960'],
+			['0', '总计 Total', '0', '0', '0', '0', '0', '32,960']
+		];
+
+		classname = ".last_data";
+		addListFunction("", last_value, classname, 1);
+
+  	</script>
+
+  </body>
+</html>
